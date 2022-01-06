@@ -12,11 +12,13 @@
 
 ```
 cd client
-npx create-react-app .
+npx create-react-app || npm i
 npm start
 ```
 
 ### cleaning some default react app files and adding -svg files into assets.
+
+### importing my global customized styling sheet..!!
 
 - added few svg assets for page,
 - Plan for css files,
