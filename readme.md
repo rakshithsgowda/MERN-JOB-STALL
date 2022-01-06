@@ -24,3 +24,7 @@ npm start
 - Plan for css files,
 - install and import normalize/styled components,
 - use normalize for global styles
+
+###### Create **LOGO** as a seaprate component so we can use it several times in the project.
+
+###### Added routing system from react router version 6
