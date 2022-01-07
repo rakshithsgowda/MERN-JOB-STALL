@@ -28,3 +28,5 @@ npm start
 ###### Create **LOGO** as a seaprate component so we can use it several times in the project.
 
 ###### Added routing system from react router version 6
+
+###### Setup basic pages for registeration login error etc..
