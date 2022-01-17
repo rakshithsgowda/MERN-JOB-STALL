@@ -29,4 +29,4 @@ npm start
 
 ###### Added routing system from react router version 6
 
-###### Setup basic pages for registeration login error etc..
+###### Setup UI for basic pages LIke registration login error etc..

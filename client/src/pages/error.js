@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ErrorImage from '../assets/images/not-found.svg'
 import { Link } from 'react-router-dom'
+
 const Error = () => {
   return (
     <Wrapper className='full-page'>
