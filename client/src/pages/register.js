@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import { Logo, FormRow } from '../components'
+import { Logo, FormRow, Alert } from '../components'
 
 const initialState = {
   name: '',
   mail: '',
   password: '',
-  isMember: 'true',
+  isMember: true,
+  showAlert: false,
 }
 
 const Register = () => {
@@ -17,34 +18,36 @@ const Register = () => {
     console.log(e.target)
   }
   const handleChange = (e) => {
-    console.log(e.target)
+    console.log(e.target.value)
   }
 
   return (
     <Wrapper className='full-page'>
       <form className='form' onSubmit={handleSubmit}>
-        {/* <Logo /> */}
+        <Logo />
         <h3>Registeration</h3>
+        {values.showAlert && <Alert />}
+
         {/* name input */}
         <FormRow
           type='text'
           value={values.name}
           name='name'
-          onChange={handleChange}
+          handleChange={handleChange}
         />
         {/* email input */}
         <FormRow
           type='email'
           value={values.email}
           name='email'
-          onChange={handleChange}
+          handleChange={handleChange}
         />
         {/* Password input */}
         <FormRow
           type='password'
           value={values.password}
           name='password'
-          onChange={handleChange}
+          handleChange={handleChange}
         />
 
         <button type='submit' className='btn btn-block'>
