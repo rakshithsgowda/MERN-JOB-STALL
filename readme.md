@@ -30,3 +30,5 @@ npm start
 ###### Added routing system from react router version 6
 
 ###### Setup UI for basic pages LIke registration login error etc..
+
+###### Lets setup app context to get major global states to the context
