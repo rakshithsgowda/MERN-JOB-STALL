@@ -32,62 +32,53 @@ const Register = () => {
   }
 
   return (
-    <Wrapper className='full-page'>
-      <div>
+    <Wrapper className='full-page '>
+      <form className='form' onSubmit={handleSubmit}>
         <Logo />
-      </div>
-      <div>
-        <form className='form' onSubmit={handleSubmit}>
-          <h1>{values.isMember ? 'Login' : 'Register'}</h1>
-          {showAlert && <Alert />}
-          {!values.isMember && (
-            <FormRow
-              type='text'
-              name='name'
-              value={values.name}
-              handleChange={handleChange}
-            />
-          )}
-
-          {/* email input */}
+        <h1>{values.isMember ? 'Login' : 'Register'}</h1>
+        {showAlert && <Alert />}
+        {!values.isMember && (
           <FormRow
-            type='email'
-            name='email'
-            value={values.email}
+            type='text'
+            name='name'
+            value={values.name}
             handleChange={handleChange}
           />
-          {/* Password input */}
-          <FormRow
-            type='password'
-            name='password'
-            value={values.password}
-            handleChange={handleChange}
-          />
-
-          <button type='submit' className='btn btn-block'>
-            Submit
+        )}
+        {/* email input */}
+        <FormRow
+          type='email'
+          name='email'
+          value={values.email}
+          handleChange={handleChange}
+        />
+        {/* Password input */}
+        <FormRow
+          type='password'
+          name='password'
+          value={values.password}
+          handleChange={handleChange}
+        />
+        <button type='submit' className='btn btn-block'>
+          Submit
+        </button>
+        <p>
+          {values.isMember ? ' Not a Member?' : 'Already a member ?'}
+          <button type='button' onClick={toggleMember} className='member-btn'>
+            {values.isMember ? 'Register' : 'Login'}
           </button>
-          <p>
-            {values.isMember ? ' Not a Member?' : 'Already a member ?'}
-            <button type='button' onClick={toggleMember} className='member-btn'>
-              {values.isMember ? 'Register' : 'Login'}
-            </button>
-          </p>
-        </form>
-      </div>
+        </p>
+      </form>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   .logo {
-    display: inline-block;
-    margin: 0 40px;
-    margin-bottom: 1.38rem;
-    over-flow: hidden;
+    display: block;
+    margin: -50px 40px;
+    padding: 0;
+    z-index: -1;
   }
   .form {
     max-width: 400px;
