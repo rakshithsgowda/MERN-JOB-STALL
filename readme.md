@@ -32,3 +32,9 @@ npm start
 ###### Setup UI for basic pages LIke registration login error etc..
 
 ###### Lets setup app context to get major global states to the context
+
+# Lets set up server
+
+- lets setup middleware for
+  - Error handling
+  - NotFound
