@@ -45,10 +45,10 @@ html {
   /*-------------------------------------- rest of the colors ----------------------------------*/
   --black: #222;
   --white: #fff;
-  --red-light: #f8d7da;
-  --red-dark: #c90718;
-  --green-light: #bcf5dc;
-  --green-dark: #033d22;
+  --red-light: #fc7373;
+  --red-dark: #eb0418;
+  --green-light: #83c57f;
+  --green-dark: #0a4f01;
 
   /*-------------------------------------- fonts ------------------------------------------ */
   --headingFont: 'Indie Flower', cursive;

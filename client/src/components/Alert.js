@@ -5,7 +5,7 @@ const Alert = () => {
   const { alertType, alertText } = useAppContext()
   return (
     <Wrapper className={`alert alert-${alertType}`}>
-      <h4> ho-hoo!!{alertText}</h4>
+      <h4> ho-hoo!! {alertText} </h4>
     </Wrapper>
   )
 }
