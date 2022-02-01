@@ -38,3 +38,15 @@ npm start
 - lets setup middleware for
   - Error handling
   - NotFound
+
+setup database connection.
+
+make sure the env and gitignore are done correctly.
+
+make controllers for MVC pattern
+
+In the COntrolllers lets add AUTH-CONTROLLER whic has
+
+- login
+- register
+- update user

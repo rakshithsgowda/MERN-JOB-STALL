@@ -1,27 +1,33 @@
 import express from 'express'
 import dotenv from 'dotenv'
 
-dotenv.config()
+const app = express()
 
+dotenv.config()
+const PORT = process.env.PORT || 5000
+
+// --------------------DB AND AUTHENTICATE USER-------------------------------------------
+import connectDB from './db/connect.js'
+
+// --------------------ROUTERS-----------------------------------------------------
+import authRouter from './routes/authRoutes.js'
+import jobsRouter from './routes/authRoutes.js'
+
+// --------------------MIDDLEWARES-----------------------------------------------------
 import errorHandlerMiddleware from './middlewares/error-handler.js'
 import NotFoundMiddleware from './middlewares/NotFound.js'
 
-import connectDB from './db/connect.js'
-
-const app = express()
-const PORT = process.env.PORT || 5000
+app.use(express.json())
 
 app.get('/', (req, res) => {
-  throw new Error('Something bad happened.')
   res.send('welcome')
 })
 
-// ---------------------------------------------------------------------------------------
-// --------------------MIDDLEWARES-----------------------------------------------------
-// ---------------------------------------------------------------------------------------
 app.use(NotFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
+app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/jobs', jobsRouter)
 // ---------------------------------------------------------------------------------------
 // --------------------LISTENING ON PORT-----------------------------------------------------
 // ---------------------------------------------------------------------------------------
