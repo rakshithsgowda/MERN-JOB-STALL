@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 const app = express()
 
@@ -11,25 +12,26 @@ import connectDB from './db/connect.js'
 
 // --------------------ROUTERS-----------------------------------------------------
 import authRouter from './routes/authRoutes.js'
-import jobsRouter from './routes/authRoutes.js'
+import jobsRouter from './routes/jobsRoutes.js'
 
 // --------------------MIDDLEWARES-----------------------------------------------------
 import errorHandlerMiddleware from './middlewares/error-handler.js'
 import NotFoundMiddleware from './middlewares/NotFound.js'
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.send('welcome')
 })
 
-app.use(NotFoundMiddleware)
-app.use(errorHandlerMiddleware)
-
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/jobs', jobsRouter)
+
+app.use(NotFoundMiddleware)
+app.use(errorHandlerMiddleware)
 // ---------------------------------------------------------------------------------------
-// --------------------LISTENING ON PORT-----------------------------------------------------
+// --------------------LISTENING ON PORT--------------------------------------------------
 // ---------------------------------------------------------------------------------------
 
 const start = async () => {

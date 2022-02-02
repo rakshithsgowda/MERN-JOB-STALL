@@ -7,7 +7,7 @@ import {
   updateJob,
   showStats,
   createJob,
-} from '../controllers/jobsController'
+} from '../controllers/jobsController.js'
 
 router.route('/').post(createJob).get(getAllJob)
 // Lets be aware of -----------> :id

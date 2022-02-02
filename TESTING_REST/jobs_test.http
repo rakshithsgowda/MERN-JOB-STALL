@@ -1,0 +1,24 @@
+
+@GlobalHost= http://localhost:5000/api/v1/jobs/
+
+
+### 
+# Create Job
+POST  {{GlobalHost}}/ HTTP/1.1
+
+
+###
+# getAllJob
+GET  {{GlobalHost}}/ HTTP/1.1
+
+###
+# deleteJob
+DELETE  {{GlobalHost}}/123 HTTP/1.1
+
+###
+# updateJob
+PATCH  {{GlobalHost}}/123 HTTP/1.1
+
+###
+# showStats
+GET  {{GlobalHost}}/stats HTTP/1.1

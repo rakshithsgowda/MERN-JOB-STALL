@@ -1,0 +1,20 @@
+
+@GlobalHost= http://localhost:5000/api/v1/auth/
+
+
+
+###
+# Register User
+POST {{GlobalHost}}/register HTTP/1.1
+
+###
+# Login User
+POST {{GlobalHost}}/login HTTP/1.1
+
+
+###
+# Update User
+PATCH  {{GlobalHost}}/updateuser HTTP/1.1
+
+
+
