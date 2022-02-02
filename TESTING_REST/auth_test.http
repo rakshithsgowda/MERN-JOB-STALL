@@ -6,6 +6,13 @@
 ###
 # Register User
 POST {{GlobalHost}}/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "name":"name",
+  "password":"secret",
+  "email":"india@india.com"
+}
 
 ###
 # Login User
