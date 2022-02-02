@@ -11,7 +11,7 @@ Content-Type: application/json
 {
   "name":"name",
   "password":"secret",
-  "email":"india@india.com"
+  "email":"india@india"
 }
 
 ###
