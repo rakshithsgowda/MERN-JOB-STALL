@@ -52,3 +52,5 @@ In the COntrolllers lets add AUTH-CONTROLLER whic has
 - update user
 
 ## Error Handling components
+
+## Lets add HAshing the password feature to the Schema so that we save the hashed password instead of actual password.
