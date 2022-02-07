@@ -1,11 +1,20 @@
 import User from '../models/User.js'
 import { StatusCodes } from 'http-status-codes'
+import { BadRequestError, NotFoundError } from '../errors/index.js'
 
 // ---------------------------REGISTER-USER --------------------------
 
 const registerUser = async (req, res, next) => {
-  const user = await User.create(req.body)
-  res.status(StatusCodes.CREATED).json({ user })
+  const { name, email, password } = req.body
+
+  if (!name || !email || !password) {
+    throw new BadRequestError(
+      'registeration parameters mismatch,provide all values'
+    )
+  }
+
+  const user = await User.create({ name, email, password })
+  res.status(StatusCodes.OK).json({ user })
 }
 
 // ---------------------------LOGIN-USER --------------------------

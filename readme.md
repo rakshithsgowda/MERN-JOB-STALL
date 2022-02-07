@@ -50,3 +50,5 @@ In the COntrolllers lets add AUTH-CONTROLLER whic has
 - login
 - register
 - update user
+
+## Error Handling components

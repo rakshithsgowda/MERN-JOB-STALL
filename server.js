@@ -9,14 +9,12 @@ const PORT = process.env.PORT || 5000
 
 // --------------------DB AND AUTHENTICATE USER-------------------------------------------
 import connectDB from './db/connect.js'
-
-// --------------------ROUTERS-----------------------------------------------------
-import authRouter from './routes/authRoutes.js'
-import jobsRouter from './routes/jobsRoutes.js'
-
 // --------------------MIDDLEWARES-----------------------------------------------------
 import errorHandlerMiddleware from './middlewares/error-handler.js'
 import NotFoundMiddleware from './middlewares/NotFound.js'
+// --------------------ROUTERS-----------------------------------------------------
+import authRouter from './routes/authRoutes.js'
+import jobsRouter from './routes/jobsRoutes.js'
 
 app.use(express.json())
 app.use(cors())
