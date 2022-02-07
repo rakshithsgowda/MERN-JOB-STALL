@@ -54,3 +54,5 @@ In the COntrolllers lets add AUTH-CONTROLLER whic has
 ## Error Handling components
 
 ## Lets add HAshing the password feature to the Schema so that we save the hashed password instead of actual password.
+
+## Include **JWT** into the schema propertiess of the user

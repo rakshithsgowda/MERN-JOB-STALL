@@ -19,7 +19,8 @@ const registerUser = async (req, res, next) => {
   }
 
   const user = await User.create({ name, email, password })
-  res.status(StatusCodes.OK).json({ user })
+  const token = user.createJWT()
+  res.status(StatusCodes.OK).json({ user, token })
 }
 
 // ---------------------------LOGIN-USER --------------------------
