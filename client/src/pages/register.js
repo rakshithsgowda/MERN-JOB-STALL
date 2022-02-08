@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Logo, FormRow, Alert } from '../components'
 import { useAppContext } from '../context/appContext'
 import { useNavigate } from 'react-router-dom'
+
 const initialState = {
   name: '',
   email: '',
@@ -13,7 +14,8 @@ const initialState = {
 const Register = () => {
   const { navigate } = useNavigate()
   const [values, setValues] = useState(initialState)
-  const { user, isLoading, showAlert, displayAlert, registerUser } =
+
+  const { user, isLoading, showAlert, displayAlert, registerUser, loginUser } =
     useAppContext()
 
   const toggleMember = () => {
@@ -28,8 +30,9 @@ const Register = () => {
       return
     }
     const currentUser = { name, email, password }
+
     if (isMember) {
-      console.log('already a member')
+      loginUser(currentUser)
     } else {
       registerUser(currentUser)
     }
