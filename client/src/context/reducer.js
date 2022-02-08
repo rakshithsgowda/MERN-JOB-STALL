@@ -7,7 +7,7 @@ import {
 } from './actions'
 
 const reducer = (state, action) => {
-  if ((action.type = DISPLAY_ALERT)) {
+  if (action.type === DISPLAY_ALERT) {
     return {
       ...state,
       showAlert: true,
@@ -15,7 +15,7 @@ const reducer = (state, action) => {
       alertText: 'Please provide all values',
     }
   }
-  if ((action.type = CLEAR_ALERT)) {
+  if (action.type === CLEAR_ALERT) {
     return {
       ...state,
       showAlert: false,
@@ -23,6 +23,33 @@ const reducer = (state, action) => {
       alertText: '',
     }
   }
+  if (action.type === REGISTER_USER_BEGIN) {
+    return { ...state, isLoading: true }
+  }
+  if (action.type === REGISTER_USER_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      token: action.payload.token,
+      user: action.payload.user,
+      userLocation: action.payload.location,
+      jobLocation: action.payload.location,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'Registeration successfull redirecting..!!',
+    }
+  }
+  if (action.type === REGISTER_USER_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg | 'Registeration error',
+    }
+  }
+
   throw new Error(`Something bad happened. ${action.type}`)
 }
 export default reducer
