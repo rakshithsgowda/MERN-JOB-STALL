@@ -88,6 +88,8 @@ const Register = () => {
   )
 }
 
+// --------------------------------------------------------------------
+
 const Wrapper = styled.section`
   .logo {
     display: block;

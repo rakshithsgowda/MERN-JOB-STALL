@@ -1,6 +1,8 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import 'express-async-errors'
+import morgan from 'morgan'
 
 const app = express()
 
@@ -9,13 +11,17 @@ const PORT = process.env.PORT || 5000
 
 // --------------------DB AND AUTHENTICATE USER-------------------------------------------
 import connectDB from './db/connect.js'
-// --------------------MIDDLEWARES-----------------------------------------------------
-import errorHandlerMiddleware from './middlewares/error-handler.js'
-import NotFoundMiddleware from './middlewares/NotFound.js'
+
 // --------------------ROUTERS-----------------------------------------------------
 import authRouter from './routes/authRoutes.js'
 import jobsRouter from './routes/jobsRoutes.js'
+// --------------------MIDDLEWARES-----------------------------------------------------
+import errorHandlerMiddleware from './middlewares/error-handler.js'
+import NotFoundMiddleware from './middlewares/NotFound.js'
 
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'))
+}
 app.use(express.json())
 app.use(cors())
 
