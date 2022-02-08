@@ -26,6 +26,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, 'plase provide password'],
     minlength: 6,
+    select: false,
   },
   lastname: { type: String, trim: true, maxlength: 20, default: 'indian' },
   location: { type: String, trim: true, maxlength: 20, default: 'my city' },
@@ -40,6 +41,12 @@ UserSchema.methods.createJWT = function () {
   return jsonwebtoken.sign({ userID: this._id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_LIFETIME,
   })
+}
+
+UserSchema.methods.comparePassword = async function (candidatePassword) {
+  const isMatch = bcryptjs.compare(candidatePassword, this.password)
+
+  return isMatch
 }
 
 export default mongoose.model('User', UserSchema)
