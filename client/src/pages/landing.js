@@ -1,6 +1,6 @@
 import Wrapper from '../assets/css-wrapper/landing-wrapper'
 import main from '../assets/images/main.svg'
-import { Logo, FormRow } from '../components/'
+import { Logo } from '../components/'
 
 const Landing = () => {
   return (

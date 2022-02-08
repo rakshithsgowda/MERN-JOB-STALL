@@ -12,18 +12,11 @@ const initialState = {
 }
 
 const Register = () => {
-  const { navigate } = useNavigate()
+  const navigate = useNavigate()
   const [values, setValues] = useState(initialState)
 
-  const {
-    user,
-    isLoading,
-    showAlert,
-    displayAlert,
-    registerUser,
-    loginUser,
-    setupUser,
-  } = useAppContext()
+  const { user, isLoading, showAlert, displayAlert, setupUser } =
+    useAppContext()
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember })
@@ -56,6 +49,7 @@ const Register = () => {
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
+
   useEffect(() => {
     if (user) {
       setTimeout(() => {
@@ -92,12 +86,17 @@ const Register = () => {
           value={values.password}
           handleChange={handleChange}
         />
-        <button type='submit' className='btn btn-block' disabled={isLoading}>
+        <button type='submit' className='btn btn-block'>
           Submit
         </button>
         <p>
           {values.isMember ? ' Not a Member?' : 'Already a member ?'}
-          <button type='button' onClick={toggleMember} className='member-btn'>
+          <button
+            type='button'
+            onClick={toggleMember}
+            className='member-btn'
+            disabled={isLoading}
+          >
             {values.isMember ? 'Register' : 'Login'}
           </button>
         </p>
