@@ -2,8 +2,12 @@ import styled from 'styled-components'
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from 'react-icons/fa'
 import { Logo } from '.'
 import { useAppContext } from '../context/appContext'
+import { useState } from 'react'
+
 const Navbar = () => {
-  const { toggleSidebar } = useAppContext()
+  const [showLogout, setShowLogout] = useState(false)
+
+  const { toggleSidebar, user } = useAppContext()
   return (
     <Wrapper>
       <div className='nav-center'>
@@ -22,13 +26,13 @@ const Navbar = () => {
         <button
           type='button'
           className='btn'
-          onClick={() => console.log('show/hide dropdown ')}
+          onClick={() => setShowLogout(!showLogout)}
         >
           <FaUserCircle />
           raksh
           <FaCaretDown />
         </button>
-        <div className='dropdown show-dropdown'>
+        <div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
           <button
             type='button'
             className='dropdown-btn'
@@ -107,6 +111,8 @@ const Wrapper = styled.nav`
   .logo-text {
     display: none;
     margin: 0;
+    display: flex;
+    align-items: center;
   }
   @media (min-width: 992px) {
     position: sticky;

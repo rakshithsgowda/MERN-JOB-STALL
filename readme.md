@@ -62,3 +62,6 @@ In the COntrolllers lets add AUTH-CONTROLLER whic has
 ## After completing the USER registeration and login genneral functionality of website protection is complete
 
 ### we will proceed to create a protected route so that landing page and user account page are separated.
+
+
+## PRepare Navbar for screen sizes with toggle functionality in it.
