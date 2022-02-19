@@ -108,17 +108,19 @@ const Register = () => {
 // --------------------------------------------------------------------
 
 const Wrapper = styled.section`
+  display: grid;
+  align-items: center;
   .logo {
     display: block;
-    margin: -50px 40px;
-    padding: 0;
-    z-index: -1;
+    margin: 0 auto;
+    margin-bottom: 1.38rem;
   }
   .form {
     max-width: 400px;
     border-top: 5px solid var(--primary-500);
   }
-  h1 {
+
+  h3 {
     text-align: center;
   }
   p {

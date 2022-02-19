@@ -25,7 +25,6 @@ function App() {
           <Route path='add-job' element={<AddJob />} />
           <Route path='all-jobs' element={<AllJobs />} />
           <Route path='profile' element={<Profile />} />
-          {/* <Route path='sharedLayout' element={<SharedLayout />} /> */}
         </Route>
         <Route path='/landing' element={<Landing />} />
         <Route path='/register' element={<Register />} />
