@@ -9,13 +9,14 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   TOGGLE_SIDEBAR,
+  LOGOUT_USER,
 } from './actions'
 
 const token = localStorage.getItem('token')
 const user = localStorage.getItem('user')
 const userLocation = localStorage.getItem('location')
 
-const initialState = {
+export const initialState = {
   isLoading: false,
   showAlert: false,
   alertText: '',
@@ -79,6 +80,12 @@ const AppProvider = ({ children }) => {
   const togglesidebar = () => {
     dispatch({ type: TOGGLE_SIDEBAR })
   }
+  // -------------------------------------------------------------------
+  // logout user
+  const logoutUser = () => {
+    dispatch({ type: LOGOUT_USER })
+    removeUserFromLocalStorage()
+  }
 
   return (
     <AppContext.Provider
@@ -87,6 +94,7 @@ const AppProvider = ({ children }) => {
         displayAlert,
         setupUser,
         togglesidebar,
+        logoutUser,
       }}
     >
       {children}
