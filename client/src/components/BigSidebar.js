@@ -1,7 +1,26 @@
 import styled from 'styled-components'
+import { Logo } from '.'
+import { useAppContext } from '../context/appContext'
+import NavLinks from './NavLinks'
 
-const BigSidebar = () => {
-  return <Wrapper>BigSidebar</Wrapper>
+const BigSidebar = ({ toggleSidebar }) => {
+  const { showSidebar } = useAppContext()
+  return (
+    <Wrapper>
+      <div
+        className={
+          showSidebar ? 'sidebar-container ' : 'sidebar-container show-sidebar'
+        }
+      >
+        <div className='content'>
+          <header>
+            <Logo />
+          </header>
+          <NavLinks toggleSidebar={toggleSidebar} />
+        </div>
+      </div>
+    </Wrapper>
+  )
 }
 
 export default BigSidebar

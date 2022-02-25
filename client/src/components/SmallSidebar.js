@@ -1,7 +1,31 @@
 import styled from 'styled-components'
+import { FaTimes } from 'react-icons/fa'
+
+import Logo from './Logo.js'
+import { useAppContext } from '../context/appContext.js'
+import NavLinks from './NavLinks.js'
 
 const SmallSidebar = () => {
-  return <Wrapper>SmallSidebar</Wrapper>
+  const { showSidebar, toggleSidebar } = useAppContext()
+  return (
+    <Wrapper>
+      <div
+        className={
+          showSidebar ? 'sidebar-container show-sidebar' : 'sidebar-container'
+        }
+      >
+        <div className='content'>
+          <button type='button' className='close-btn' onClick={toggleSidebar}>
+            <FaTimes />
+          </button>
+          <header>
+            <Logo />
+          </header>
+          <NavLinks toggleSidebar={toggleSidebar} />
+        </div>
+      </div>
+    </Wrapper>
+  )
 }
 const Wrapper = styled.aside`
   @media (min-width: 992px) {

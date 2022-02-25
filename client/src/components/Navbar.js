@@ -11,31 +11,28 @@ const Navbar = () => {
   return (
     <Wrapper>
       <div className='nav-center'>
-        <button
-          className='toggle-btn'
-          onClick={() => console.log('togglebutton ')}
-        >
+        <button type='button' className='toggle-btn' onClick={toggleSidebar}>
           <FaAlignLeft />
         </button>
-      </div>
-      <div>
-        <Logo />
-        <h3 className='logo-text'>dashboard</h3>
-      </div>
-      <div className='btn-container'>
-        <button
-          type='button'
-          className='btn'
-          onClick={() => setShowLogout(!showLogout)}
-        >
-          <FaUserCircle />
-          {user?.name}
-          <FaCaretDown />
-        </button>
-        <div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
-          <button type='button' className='dropdown-btn' onClick={logoutUser}>
-            logout
+        <div>
+          <Logo />
+          <h3 className='logo-text'>dashboard</h3>
+        </div>
+        <div className='btn-container'>
+          <button
+            type='button'
+            className='btn'
+            onClick={() => setShowLogout(!showLogout)}
+          >
+            <FaUserCircle />
+            {user?.name}
+            <FaCaretDown />
           </button>
+          <div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
+            <button type='button' className='dropdown-btn' onClick={logoutUser}>
+              logout
+            </button>
+          </div>
         </div>
       </div>
     </Wrapper>
@@ -107,8 +104,6 @@ const Wrapper = styled.nav`
   .logo-text {
     display: none;
     margin: 0;
-    display: flex;
-    align-items: center;
   }
   @media (min-width: 992px) {
     position: sticky;

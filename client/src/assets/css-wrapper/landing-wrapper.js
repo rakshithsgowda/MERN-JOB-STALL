@@ -4,13 +4,13 @@ const Wrapper = styled.main`
   nav {
     width: var(--fluid-width);
     max-width: var(--max-width);
-    height: var(--nav-height);
     margin: 0 auto;
+    height: var(--nav-height);
     display: flex;
-    align-item: center;
+    align-items: center;
   }
   .page {
-    height: calc(100vh-var(--nav-height));
+    min-height: calc(100vh - var(--nav-height));
     display: grid;
     align-items: center;
     margin-top: -3rem;
@@ -27,7 +27,6 @@ const Wrapper = styled.main`
   .main-img {
     display: none;
   }
-
   @media (min-width: 992px) {
     .page {
       grid-template-columns: 1fr 1fr;
